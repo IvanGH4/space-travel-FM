@@ -9,7 +9,7 @@ import {
 } from 'remix';
 import type { MetaFunction, LinksFunction } from 'remix';
 import Navbar from '~/components/Global/Navbar';
-import { GlobalStyle } from '~/utils/styles';
+import { breakpoints, GlobalStyle } from '~/utils/styles';
 import styled from 'styled-components';
 import Particles from './components/Global/Particles';
 
@@ -67,6 +67,28 @@ const BG = styled.div<BGProps>`
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+
+  @media (max-width: ${breakpoints.tablet}px) {
+    background-image: ${({ location }) =>
+      location === ''
+        ? `url('/img/background-home-tablet.jpg');`
+        : location === 'destination'
+        ? `url('/img/background-destination-tablet.jpg');`
+        : location === 'crew'
+        ? `url('/img/background-crew-tablet.jpg');`
+        : `url('/img/background-technology-tablet.jpg');`};
+  }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    background-image: ${({ location }) =>
+      location === ''
+        ? `url('/img/background-home-mobile.jpg');`
+        : location === 'destination'
+        ? `url('/img/background-destination-mobile.jpg');`
+        : location === 'crew'
+        ? `url('/img/background-crew-mobile.jpg');`
+        : `url('/img/background-technology-mobile.jpg');`};
+  }
 `;
 
 function Layout({ children }: Props) {
