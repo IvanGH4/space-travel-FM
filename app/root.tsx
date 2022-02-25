@@ -5,11 +5,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from 'remix';
 import type { MetaFunction, LinksFunction } from 'remix';
 import Navbar from '~/components/Global/Navbar';
 import { GlobalStyle } from '~/utils/styles';
 import styled from 'styled-components';
+import Particles from './components/Global/Particles';
 
 type Props = {
   children: JSX.Element;
@@ -48,8 +50,19 @@ export default function App() {
   );
 }
 
-const BG = styled.div`
-  background-image: url('/img/background-home-desktop.jpg');
+interface BGProps {
+  location: string;
+}
+
+const BG = styled.div<BGProps>`
+  background-image: ${({ location }) =>
+    location === ''
+      ? `url('/img/background-home-desktop.jpg');`
+      : location === 'destination'
+      ? `url('/img/background-destination-desktop.jpg');`
+      : location === 'crew'
+      ? `url('/img/background-crew-desktop.jpg');`
+      : `url('/img/background-technology-desktop.jpg');`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -57,11 +70,14 @@ const BG = styled.div`
 `;
 
 function Layout({ children }: Props) {
+  const location = useLocation();
+
   return (
-    <BG>
+    <BG location={location.pathname.replace('/', '')}>
       <GlobalStyle />
       <Navbar />
-      {children}
+      <Particles />
+      <div style={{ maxWidth: '77%', margin: '0 auto' }}>{children}</div>
     </BG>
   );
 }

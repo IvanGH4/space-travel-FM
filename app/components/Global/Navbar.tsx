@@ -43,13 +43,13 @@ export default function Navbar() {
           <Link to="/">00 Home</Link>
         </li>
         <li>
-          <Link to="/">01 Destination</Link>
+          <Link to="/destination">01 Destination</Link>
         </li>
         <li>
-          <Link to="/">02 Crew</Link>
+          <Link to="/crew">02 Crew</Link>
         </li>
         <li>
-          <Link to="/">03 Technology</Link>
+          <Link to="/technology">03 Technology</Link>
         </li>
       </NavItems>
     </Nav>
