@@ -99,7 +99,9 @@ function Layout({ children }: Props) {
       <GlobalStyle />
       <Navbar />
       <Particles />
-      <div style={{ maxWidth: '77%', margin: '0 auto' }}>{children}</div>
+      <div style={{ maxWidth: '77%', margin: '0 auto', zIndex: 50 }}>
+        {children}
+      </div>
     </BG>
   );
 }

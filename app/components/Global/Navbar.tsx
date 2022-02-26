@@ -1,64 +1,52 @@
-import { Link, useLocation } from 'remix';
+import { useState } from 'react';
 import styled from 'styled-components';
-import { colors } from '~/utils/styles';
+import DesktopNav from './DesktopNav';
+import MobileNav from './MobileNav';
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 55px;
-`;
+  position: relative;
 
-const NavItems = styled.ul`
-  display: flex;
-  padding: 39px 165px 0px 123px;
+  .open-menu-icon {
+    display: none;
 
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(100px);
-  -webkit-backdrop-filter: blur(100px);
-
-  li {
-    text-transform: uppercase;
-    padding-bottom: 38px;
-
-    &.active {
-      border-bottom: solid 3px ${colors.light};
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
     }
+  }
 
-    &:not(:last-child) {
-      margin-right: 48px;
-    }
+  @media (max-width: 650px) {
+    padding-top: 24px;
+    padding-right: 24px;
 
-    a {
-      text-decoration: none;
-      color: ${colors.light};
-      font-family: 'Barlow Condensed', sans-serif;
+    .open-menu-icon {
+      display: block;
     }
   }
 `;
 
 export default function Navbar() {
-  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Nav>
       <div>
         <img src="/img/logo.svg" alt="Logo" />
       </div>
-      <NavItems>
-        <li className={location.pathname === '/' ? 'active' : ''}>
-          <Link to="/">00 Home</Link>
-        </li>
-        <li className={location.pathname === '/destination' ? 'active' : ''}>
-          <Link to="/destination">01 Destination</Link>
-        </li>
-        <li className={location.pathname === '/crew' ? 'active' : ''}>
-          <Link to="/crew">02 Crew</Link>
-        </li>
-        <li className={location.pathname === '/technology' ? 'active' : ''}>
-          <Link to="/technology">03 Technology</Link>
-        </li>
-      </NavItems>
+      {!isMenuOpen && (
+        <div className="open-menu-icon">
+          <button onClick={() => setIsMenuOpen(true)}>
+            <img src="/img/icon-hamburger.svg" alt="Open menu icon" />
+          </button>
+        </div>
+      )}
+      <DesktopNav />
+      <MobileNav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </Nav>
   );
 }
