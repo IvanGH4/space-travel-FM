@@ -184,6 +184,10 @@ export default function Destination() {
 
   const location: Location = getKeyValue(destinations, selectedLocation);
 
+  const handleClick = (str: StrLocation) => {
+    setSelectedLocation(str);
+  };
+
   return (
     <Container>
       <ImageWrapper>
@@ -195,10 +199,10 @@ export default function Destination() {
       <div className="info">
         <Options>
           {Object.keys(destinations).map((item) => (
-            <li key={Date.now()}>
+            <li key={Math.random() * 100}>
               <Button
                 className={item === selectedLocation ? 'active' : ''}
-                onClick={() => setSelectedLocation(item as StrLocation)}
+                onClick={() => handleClick(item as StrLocation)}
               >
                 {item}
               </Button>
