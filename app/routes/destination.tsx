@@ -167,6 +167,10 @@ const Button = styled.button`
     margin-right: 35px;
   }
 
+  &:hover {
+    border-bottom: solid 3px rgba(255, 255, 255, 0.5);
+  }
+
   &.active {
     color: ${colors.light};
     border-bottom: solid 3px ${colors.light};
@@ -191,7 +195,7 @@ export default function Destination() {
       <div className="info">
         <Options>
           {Object.keys(destinations).map((item) => (
-            <li>
+            <li key={Date.now()}>
               <Button
                 className={item === selectedLocation ? 'active' : ''}
                 onClick={() => setSelectedLocation(item as StrLocation)}

@@ -14,10 +14,9 @@ const NavItems = styled.ul`
   right: 0;
   padding: 34px 0 0 32px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: hsl(0 0% 100% / 0.1);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
   display: block;
   transform: translateX(100%);
   transition: all 0.2s ease-in-out;

@@ -112,11 +112,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  *:not(canvas) {
-    position: relative;
-    z-index: 100;
-  }
-
   h1,
   h2,
   h3,
