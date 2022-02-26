@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '~/components/Global/SectionTitle';
-import RoundBtn from '~/components/Tech/RoundBtn';
+import RoundBtn from '~/components/buttons/RoundBtn';
 import { breakpoints, colors, fonts } from '~/utils/styles';
 
 const Techs = {
