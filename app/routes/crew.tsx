@@ -1,3 +1,3 @@
-export default function crew() {
+export default function Crew() {
   return <div>crew</div>;
 }

@@ -1,3 +1,3 @@
-export default function technology() {
+export default function Technology() {
   return <div>technology</div>;
 }

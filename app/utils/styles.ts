@@ -23,6 +23,16 @@ export const fonts = {
   h2: {
     size: '100px',
     lineHeight: '115px',
+
+    tablet: {
+      lineHeight: '80px',
+      size: '91.68px',
+    },
+
+    mobile: {
+      size: '56px',
+      lineHeight: '64.18px',
+    },
   },
   h3: {
     size: '56px',
