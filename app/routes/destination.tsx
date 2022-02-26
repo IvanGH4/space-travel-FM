@@ -72,6 +72,13 @@ const Container = styled.section`
     }
   }
 
+  .location-image {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
   @media (max-width: ${breakpoints.tablet}px) {
     justify-content: center;
 
@@ -109,37 +116,6 @@ const Container = styled.section`
     }
   }
 `;
-
-// const ImageWrapper = styled.div`
-//   h5 {
-//     font-size: ${fonts.h5.size};
-//     line-height: ${fonts.h5.lineHeight};
-//     letter-spacing: ${fonts.h5.letterSpacing};
-//     color: ${colors.light};
-//     margin-bottom: 97px;
-
-//     span {
-//       color: rgba(255, 255, 255, 0.2);
-//       margin-right: 28px;
-//     }
-//   }
-
-//   @media (max-width: ${breakpoints.tablet}px) {
-//     h5 {
-//       font-size: ${fonts.h5.tablet.size};
-//       line-height: ${fonts.h5.tablet.lineHeight};
-//       letter-spacing: ${fonts.h5.tablet.letterSpacing};
-//     }
-//   }
-
-//   @media (max-width: ${breakpoints.mobile}px) {
-//     h5 {
-//       font-size: ${fonts.h5.mobile.size};
-//       line-height: ${fonts.h5.mobile.lineHeight};
-//       letter-spacing: ${fonts.h5.mobile.letterSpacing};
-//     }
-//   }
-// `;
 
 const Options = styled.ul`
   display: flex;
@@ -206,6 +182,14 @@ const TravelInfo = styled.div`
   & > div:first-child {
     margin-right: 80px;
   }
+
+  @media (max-width: ${breakpoints.tablet}px) {
+    flex-direction: column;
+
+    & > div:first-child {
+      margin-right: 0;
+    }
+  }
 `;
 
 type StrLocation = 'moon' | 'mars' | 'europa' | 'titan';
@@ -223,7 +207,9 @@ export default function Destination() {
     <Container>
       <div>
         <SectionTitle span_text="01" title="Pick your destination" />
-        <img src={location.img} alt={location.title} />
+        <div className="location-image">
+          <img src={location.img} alt={location.title} />
+        </div>
       </div>
       <div className="info">
         <Options>

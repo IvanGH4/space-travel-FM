@@ -139,4 +139,8 @@ export const GlobalStyle = createGlobalStyle`
   ul {
     list-style: none;
   }
+
+  p {
+    font-family: 'Barlow Condensed', sans-serif;
+  }
 `;
