@@ -63,6 +63,11 @@ const Container = styled.section`
       color: ${colors.secondary};
       font-size: ${fonts.bodyText.size};
       line-height: ${fonts.bodyText.lineHeight};
+
+      &.destination-text {
+        padding-bottom: 54px;
+        border-bottom: solid 1px hsla(231, 15%, 26%, 1);
+      }
     }
   }
 
@@ -177,6 +182,31 @@ const Button = styled.button`
   }
 `;
 
+const TravelInfo = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: uppercase;
+
+  p {
+    color: ${colors.secondary};
+    font-size: ${fonts.subH2.size};
+    line-height: ${fonts.subH2.lineHeight};
+    letter-spacing: ${fonts.subH2.letterSpacing};
+    margin: 28px 0 12px 0;
+  }
+
+  h6 {
+    color: ${colors.light};
+    font-size: ${fonts.subH1.size};
+    line-height: ${fonts.subH1.lineHeight};
+  }
+
+  & > div:first-child {
+    margin-right: 80px;
+  }
+`;
+
 type StrLocation = 'moon' | 'mars' | 'europa' | 'titan';
 
 export default function Destination() {
@@ -210,7 +240,17 @@ export default function Destination() {
           ))}
         </Options>
         <h2>{location.title}</h2>
-        <p>{location.text}</p>
+        <p className="destination-text">{location.text}</p>
+        <TravelInfo>
+          <div>
+            <p>Avg. distance</p>
+            <h6>{location.avg_distance}</h6>
+          </div>
+          <div>
+            <p>Est. travel time</p>
+            <h6>{location.est_travel_time}</h6>
+          </div>
+        </TravelInfo>
       </div>
     </Container>
   );

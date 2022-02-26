@@ -6,9 +6,9 @@ const NavItems = styled.ul`
   display: flex;
   padding: 39px 165px 0px 123px;
 
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(100px);
-  -webkit-backdrop-filter: blur(100px);
+  background: hsl(0 0% 100% / 0.1);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
 
   li {
     text-transform: uppercase;

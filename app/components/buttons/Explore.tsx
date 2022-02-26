@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { breakpoints, colors, fonts } from '~/utils/styles';
 
 const Circle = styled.div`
+  margin-top: 200px;
   .main-circle {
     position: relative;
     z-index: 1500;
@@ -43,13 +44,14 @@ const Circle = styled.div`
     }
 
     &:hover::after {
-      width: 450px;
-      height: 450px;
+      width: 400px;
+      height: 400px;
     }
 
     h4 {
       font-size: ${fonts.h4.size};
       line-height: ${fonts.h4.lineHeight};
+      z-index: 100;
     }
   }
 
