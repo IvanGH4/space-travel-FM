@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import SectionTitle from '~/components/Global/SectionTitle';
 import { getKeyValue } from '~/utils/getKeyValue';
 import { breakpoints, colors, fonts } from '~/utils/styles';
 
@@ -109,36 +110,36 @@ const Container = styled.section`
   }
 `;
 
-const ImageWrapper = styled.div`
-  h5 {
-    font-size: ${fonts.h5.size};
-    line-height: ${fonts.h5.lineHeight};
-    letter-spacing: ${fonts.h5.letterSpacing};
-    color: ${colors.light};
-    margin-bottom: 97px;
+// const ImageWrapper = styled.div`
+//   h5 {
+//     font-size: ${fonts.h5.size};
+//     line-height: ${fonts.h5.lineHeight};
+//     letter-spacing: ${fonts.h5.letterSpacing};
+//     color: ${colors.light};
+//     margin-bottom: 97px;
 
-    span {
-      color: rgba(255, 255, 255, 0.2);
-      margin-right: 28px;
-    }
-  }
+//     span {
+//       color: rgba(255, 255, 255, 0.2);
+//       margin-right: 28px;
+//     }
+//   }
 
-  @media (max-width: ${breakpoints.tablet}px) {
-    h5 {
-      font-size: ${fonts.h5.tablet.size};
-      line-height: ${fonts.h5.tablet.lineHeight};
-      letter-spacing: ${fonts.h5.tablet.letterSpacing};
-    }
-  }
+//   @media (max-width: ${breakpoints.tablet}px) {
+//     h5 {
+//       font-size: ${fonts.h5.tablet.size};
+//       line-height: ${fonts.h5.tablet.lineHeight};
+//       letter-spacing: ${fonts.h5.tablet.letterSpacing};
+//     }
+//   }
 
-  @media (max-width: ${breakpoints.mobile}px) {
-    h5 {
-      font-size: ${fonts.h5.mobile.size};
-      line-height: ${fonts.h5.mobile.lineHeight};
-      letter-spacing: ${fonts.h5.mobile.letterSpacing};
-    }
-  }
-`;
+//   @media (max-width: ${breakpoints.mobile}px) {
+//     h5 {
+//       font-size: ${fonts.h5.mobile.size};
+//       line-height: ${fonts.h5.mobile.lineHeight};
+//       letter-spacing: ${fonts.h5.mobile.letterSpacing};
+//     }
+//   }
+// `;
 
 const Options = styled.ul`
   display: flex;
@@ -220,12 +221,10 @@ export default function Destination() {
 
   return (
     <Container>
-      <ImageWrapper>
-        <h5>
-          <span>01</span>Pick your destination
-        </h5>
+      <div>
+        <SectionTitle span_text="01" title="Pick your destination" />
         <img src={location.img} alt={location.title} />
-      </ImageWrapper>
+      </div>
       <div className="info">
         <Options>
           {Object.keys(destinations).map((item) => (
