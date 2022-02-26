@@ -9,16 +9,19 @@ const Techs = {
     title: 'LAUNCH VEHICLE',
     text: 'A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from the surface of Earth to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it is quite an awe-inspiring sight on the launch pad!',
     img: '/img/image-launch-vehicle-portrait.jpg',
+    img_mobile: '/img/image-launch-vehicle-landscape.jpg',
   },
   2: {
     title: 'SPACEPORT',
     text: 'A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.',
     img: '/img/image-spaceport-portrait.jpg',
+    img_mobile: '/img/image-spaceport-landscape.jpg',
   },
   3: {
     title: 'SPACE CAPSULE',
     text: 'A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the  atmosphere of the Earth without wings. Our capsule is where you will spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.',
     img: '/img/image-space-capsule-portrait.jpg',
+    img_mobile: '/img/image-space-capsule-landscape.jpg',
   },
 };
 
@@ -44,19 +47,41 @@ const Content = styled.div`
       width: 100%;
       object-fit: cover;
     }
+
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
     margin-top: 56px;
+    flex-direction: column-reverse;
+
+    .picture {
+      max-width: 100%;
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
+    }
 
     .info {
-      margin: 0 auto;
+      margin: 56px auto 0 auto;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: 44px;
     }
   }
 `;
@@ -79,6 +104,9 @@ const Description = styled.div`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
+    max-width: unset;
+    margin-left: 0;
+
     h3 {
       font-size: ${fonts.h3.tablet.size};
       line-height: ${fonts.h3.tablet.lineHeight};
@@ -137,7 +165,8 @@ export default function Technology() {
           </Description>
         </div>
         <div className="picture">
-          <img src={tech.img} alt={tech.title} />
+          <img className="desktop" src={tech.img} alt={tech.title} />
+          <img className="mobile" src={tech.img_mobile} alt={tech.title} />
         </div>
       </Content>
     </Container>
