@@ -1,13 +1,6 @@
 import Explore from '~/components/buttons/Explore';
 import Intro from '~/components/Global/Intro';
-import styled from 'styled-components';
-
-const Container = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-`;
+import { Container } from '~/components/home/StyledComp';
 
 export default function Index() {
   return (
