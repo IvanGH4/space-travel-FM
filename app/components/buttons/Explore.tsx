@@ -1,3 +1,4 @@
+import { Link } from 'remix';
 import styled from 'styled-components';
 import { breakpoints, colors, fonts } from '~/utils/styles';
 
@@ -52,6 +53,11 @@ const Circle = styled.div`
       font-size: ${fonts.h4.size};
       line-height: ${fonts.h4.lineHeight};
       z-index: 100;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
     }
   }
 
@@ -90,7 +96,9 @@ export default function Explore() {
   return (
     <Circle>
       <div className="main-circle">
-        <h4>Explore</h4>
+        <h4>
+          <Link to="/destination">Explore</Link>
+        </h4>
       </div>
     </Circle>
   );
