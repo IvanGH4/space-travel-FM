@@ -8,6 +8,7 @@ import {
   useLocation,
 } from 'remix';
 import type { MetaFunction, LinksFunction } from 'remix';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Navbar from '~/components/Global/Navbar';
 import { breakpoints, GlobalStyle } from '~/utils/styles';
 import styled from 'styled-components';
@@ -29,6 +30,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function App() {
+  const location = useLocation();
   return (
     <html lang="en">
       <head>
@@ -39,9 +41,17 @@ export default function App() {
         {typeof document === 'undefined' ? '__STYLES__' : null}
       </head>
       <body>
-        <Layout>
-          <Outlet />
-        </Layout>
+        <TransitionGroup>
+          <CSSTransition
+            key={location.pathname}
+            classNames="my-node"
+            timeout={1000}
+          >
+            <Layout>
+              <Outlet />
+            </Layout>
+          </CSSTransition>
+        </TransitionGroup>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

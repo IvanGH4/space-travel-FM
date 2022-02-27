@@ -122,6 +122,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    overflow: hidden;
+  }
+
   h1,
   h2,
   h3,
@@ -142,5 +146,20 @@ export const GlobalStyle = createGlobalStyle`
 
   p {
     font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .my-node-enter {
+    opacity: 0.5;
+  }
+  .my-node-enter-active {
+    opacity: 1;
+    transition: opacity 1700ms;
+  }
+  .my-node-exit {
+    opacity: 1;
+  }
+  .my-node-exit-active {
+    opacity: 0.5;
+    transition: opacity 1700ms;
   }
 `;
